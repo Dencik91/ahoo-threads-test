@@ -36,12 +36,8 @@ public class PasswordProcessTest {
                         .open(is)
         ){
             for (Sheet sheet : workbook){
-                System.out.println(sheet.getSheetName());
                 for (Row r : sheet) {
-                    for (Cell c : r) {
-                        passwords.add(c.getStringCellValue());
-                        System.out.println(c.getStringCellValue());
-                    }
+                    passwords.add(r.getCell(0).getStringCellValue());
                 }
             }
         } catch (IOException e) {
